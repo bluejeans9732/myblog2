@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 
 export default function Bottombar() {
-    const pathname = usePathname();
+    const pathname = usePathname() || '';
     
     return (
         <section className="fixed bottom-0 z-10 w-full rounded-t-3xl bg-glassmorphism p-4 backdrop-blur-lg xs:px-7 md:hidden bg-gray-300">
@@ -15,7 +15,7 @@ export default function Bottombar() {
                 { 
                     sidebarLinks.map((link) => {
                         const isActive =
-                            (pathname.includes(link.route) && link.route.length > 1) ||
+                            (pathname?.includes(link.route) && link?.route?.length > 1) ||
                             pathname === link.route;
 
                         return (
