@@ -15,7 +15,7 @@ export default function Bottombar() {
                 { 
                     sidebarLinks.map((link) => {
                         const isActive =
-                            (pathname?.includes(link.route) && link?.route?.length > 1) ||
+                            (pathname.includes(link.route) && link.route.length > 1) ||
                             pathname === link.route;
 
                         return (

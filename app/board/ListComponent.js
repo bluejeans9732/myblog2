@@ -1,5 +1,6 @@
 import { connectDB } from '@/utils/database'
 import Link from 'next/link';
+import DeleteButton from './DeleteButton'
 
 export default async function ListComponent() {
 
@@ -10,14 +11,17 @@ export default async function ListComponent() {
     return (
         <div className='list-none bg-gray-200 p-[10px]'>
             { 
-                result.map((a,i)=>
-                    <div className="list-item" key={i}>
-                    <Link href={'/board/' + result[i]._id}>
-                        <h4>{result[i].title}</h4>
-                    </Link>
-                    <p>{result[i].content}</p>
+                result.map((post, i) => (
+                    <div className='list-item' key={i}>
+                      <Link href={`/board/${post._id}`}>
+                        <h4>{post.title}</h4>
+                      </Link>
+                      <div className='flex justify-between'>
+                        <p>{post.content}</p>
+                        <DeleteButton postId={JSON.parse(JSON.stringify(post._id))} />
+                      </div>
                     </div>
-                )
+                  ))
             }
         </div>
     )
