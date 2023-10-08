@@ -1,18 +1,17 @@
 import { MongoClient } from 'mongodb';
 
 const url = process.env.MONGODB_URL;
-const options = {}; // 더 이상 useNewUrlParser 옵션을 사용하지 않음
-let connectDB;
+const options = {}; 
 
-// if (process.env.NODE_ENV === 'development') {
-//   if (!global._mongo) {
-//     global._mongo = new MongoClient(url, options).connect()
-//   }
-//   connectDB = global._mongo
-// } else {
-  
-// }
+const connectDB = async () => {
+  try {
+    const client = new MongoClient(url, options);
+    await client.connect();
+    return client;
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error);
+    throw error;
+  }
+};
 
-connectDB = new MongoClient(url, options).connect()
-
-export { connectDB }
+export { connectDB };

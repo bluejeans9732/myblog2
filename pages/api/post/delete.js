@@ -4,7 +4,7 @@ import { ObjectId } from 'mongodb'
 export default async function Delete(요청, 응답) {
     console.log(JSON.parse(요청.body).postId)
     const postID = JSON.parse(요청.body).postId;
-    const client = await connectDB;
+    const client = await connectDB();
     const db = client.db('practsx');
     
     let result = await db.collection('post').deleteOne({ _id: new ObjectId(postID) })

@@ -15,6 +15,11 @@ export default function DeleteButton({ postId }) {
       };
 
     return (
-        <p onClick={handleDelete}>삭제</p>
+        <div 
+          className="cursor-pointer my-[5px] text-gray-400"
+          onClick={handleDelete}
+        >
+          삭제
+        </div>
     )
 }
