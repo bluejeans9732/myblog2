@@ -3,29 +3,8 @@
 import Link from 'next/link';
 import DeleteButton from './DeleteButton';
 import EditButton from './EditButton';
-import { useEffect, useState } from 'react';
 
-export default function ListComponent() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('/api/lists');
-        if (response.ok) {
-          const data = await response.json();
-          setPosts(data.posts);
-        } else {
-          console.error('Error fetching posts:', response.status);
-        }
-      } catch (error) {
-        console.error('Error fetching posts:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+export default function ListComponent({ posts }) {
   return (
     <div className='list-none bg-gray-200 p-[10px]'>
       {posts.map((post, i) => (
