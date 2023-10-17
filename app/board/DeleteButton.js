@@ -16,7 +16,7 @@ export default function DeleteButton({ postId }) {
 
     return (
         <div 
-          className="cursor-pointer my-[5px] text-gray-400"
+          className="cursor-pointer my-[5px] text-gray-400 hover:underline hover:text-red-600"
           onClick={handleDelete}
         >
           삭제

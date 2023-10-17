@@ -25,15 +25,15 @@ export default function LeftSidebar() {
                             <Link 
                                 href={link.route}
                                 key={link.label}
-                                className={`relative flex justify-start gap-4 rounded-lg p-4 ${isActive ? "bg-blue-500" : ""}`}
+                                className={`relative flex justify-start gap-4 rounded-lg p-4 ${isActive ? "bg-blue-400/75" : ""}`}
                             >
-                                <Image 
-                                    src={link.imgURL}
+                                <img 
+                                    src={isActive ? link.imgURLactive : link.imgURL}
                                     alt={link.label}
                                     width={24}
                                     height={24}
                                 />
-                                <p className="font-light max-lg:hidden">{link.label}</p>
+                                <p className={`font-light max-lg:hidden ${isActive ? "text-white" : ""}`}>{link.label}</p>
                             </Link>
                         );
                     })
