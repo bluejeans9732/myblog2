@@ -35,5 +35,8 @@
   "devDependencies": {
     "@babel/preset-react": "^7.22.15",
     "@swc/core": "^1.3.89"
-  }
+  },
+  "browser":{
+    "child_process": false
+  }  
 }
