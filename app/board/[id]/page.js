@@ -8,10 +8,19 @@ export default async function board(props) {
     let result = await db.collection('post').findOne({_id : new ObjectId(props.params.id)});
 
     return (
-        <div className="">
-            <h4>상세페이지</h4>
-            <h4>{result.title}</h4>
-            <p>{result.content}</p>
+        <div className="flex items-center justify-center">
+            <div className="flex flex-col w-[70vw]">
+                <h4 className='mb-3 mt-8 text-center text-2xl text-cyan-900 font-bold'>
+                    {result.title}
+                </h4>
+                <div
+                    className='text-wrap mt-10'
+                    style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}
+                >
+                    {result.content}
+                </div>
+            </div>
         </div>
     )
+    
 }
