@@ -7,7 +7,6 @@ import Topbar from './components/Topbar'
 import Bottombar from './components/Bottombar'
 import LeftSidebar from './components/LeftSidebar'
 
-import { RecoilRoot } from 'recoil';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
