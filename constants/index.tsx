@@ -12,13 +12,7 @@ export const sidebarLinks = [
       imgURLactive: "/assets/createisactive.svg",
       route: "/board",
       label: "board",
-    },
-    {
-      imgURL: "/assets/search.svg",
-      imgURLactive: "/assets/homeisactive.svg",
-      route: "/search",
-      label: "Search",
-    },    
+    },  
     {
       imgURL: "/assets/person.svg",
       imgURLactive: "/assets/personisactive.svg",

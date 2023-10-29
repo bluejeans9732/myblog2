@@ -45,14 +45,14 @@ export default function ListComponent() {
                 {post.title}
               </Link>
             </h2>
-            <p className="mb-5 font-light text-gray-500 dark:text-gray-400 overflow-hidden text-ellipsis" style={{ maxWidth: '400px' }}>
+            <p className="mb-5 font-light text-gray-500 dark:text-gray-400 overflow-hidden text-ellipsis whitespace-nowrap" style={{ maxWidth: '400px' }}>
               {post.content}
             </p>
             <div className="flex justify-between items-center">
                 <div className="flex items-center space-x-4">
-                    <img className="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Leos avatar" />
+                    <img className="w-7 h-7 rounded-full" src={post.image} alt={post.name} />
                     <span className="font-medium">
-                        Jese Leos
+                      {post.name}
                     </span>
                 </div>
                 <div className='flex'>
