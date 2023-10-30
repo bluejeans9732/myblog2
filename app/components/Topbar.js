@@ -9,6 +9,7 @@ export default async function Topbar() {
     let session = await getServerSession(authOptions)
     
     const isUserLoggedIn = session ? true : false;
+    
 
     return (
         <nav className="fixed top-0 z-30 flex w-full items-center justify-between bg-slate-700 px-6 py-3">

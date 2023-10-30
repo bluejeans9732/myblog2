@@ -1,8 +1,7 @@
 'use client'
 
 import Link from 'next/link';
-import DeleteButton from './DeleteButton';
-import EditButton from './EditButton';
+
 import SearchBar from './SearchBar';
 import React, { useEffect, useState } from 'react';
 
@@ -34,6 +33,9 @@ export default function ListComponent() {
   const filteredPosts = searchTerm 
     ? posts.filter(post => post.title.toLowerCase().includes(searchTerm.toLowerCase()))
     : posts;
+
+  // 기본 사진추가 아무 이미지없을때용도
+  const defaultImage = "https://avatars.githubusercontent.com/u/87612227?v=4";
   
   return (
     <div className='py-8 px-4 mx-auto max-w-screen-xl lg:py-6 lg:px-6'>
@@ -50,14 +52,10 @@ export default function ListComponent() {
             </p>
             <div className="flex justify-between items-center">
                 <div className="flex items-center space-x-4">
-                    <img className="w-7 h-7 rounded-full" src={post.image} alt={post.name} />
+                    <img className="w-7 h-7 rounded-full" src={post.image ? post.image : defaultImage} alt={post.name} />
                     <span className="font-medium">
                       {post.name}
                     </span>
-                </div>
-                <div className='flex'>
-                  <EditButton postId={JSON.parse(JSON.stringify(post._id))} />
-                  <DeleteButton postId={JSON.parse(JSON.stringify(post._id))} />
                 </div>
             </div>
         </article> 
