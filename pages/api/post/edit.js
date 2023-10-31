@@ -16,7 +16,7 @@ export default async function Edit(요청, 응답) {
 
         let findID = await db.collection('post').findOne({ _id : new ObjectId(postID) })
 
-        if(findID.author == session?.user?.email || findID.name == 'guest') {
+        if(findID.author == session?.user?.email || findID.name == 'guest' || (session.user.role === 'administrator')) {
             
             let result = await db.collection('post').updateOne(
                 { _id: new ObjectId(postID)}, 

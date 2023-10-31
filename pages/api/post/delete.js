@@ -14,7 +14,7 @@ export default async function Delete(요청, 응답) {
 
         let findID = await db.collection('post').findOne({ _id : new ObjectId(postID) })
 
-        if(findID.author == session?.user?.email || findID.name == 'guest') {
+        if(findID.author == session?.user?.email || findID.name == 'guest' || (session.user.role === 'administrator')) {
             let result = await db.collection('post').deleteOne({ _id: new ObjectId(postID) })
     
             return 응답.status(200).json('삭제완료')

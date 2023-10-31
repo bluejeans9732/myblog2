@@ -15,7 +15,7 @@ export default async function board(props) {
     let result = await db.collection('post').findOne({_id : new ObjectId(props.params.id)});
 
     /**보이는 조건 현재로그인 이메일 == 글쓴사람 아이이 + guest 추후 마스터 권한 조건 추가할예정 */
-    let showButtons = (session?.user?.email === result.author) || (result.name === 'guest');
+    let showButtons = (session?.user?.email === result.author) || (result.name === 'guest') || (session.user.role === 'administrator');
 
     return (
         <div className="flex items-center justify-center">

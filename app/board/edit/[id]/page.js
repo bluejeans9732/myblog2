@@ -36,7 +36,7 @@ export default async function boardedit(props) {
                 className='mb-2 p-2 hidden'
                 defaultValue={result._id.toString()}
               />
-              <div class="w-full flex justify-center">
+              <div className="w-full flex justify-center">
                  <button
                     type='submit'
                     className='bg-cyan-700/75 text-white rounded-lg p-4 mt-32'
