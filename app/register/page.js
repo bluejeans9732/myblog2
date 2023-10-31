@@ -23,43 +23,72 @@ export default function Register() {
           method="POST"
           className="h-[60vh] flex flex-col items-center justify-center "
         >
-          <input
-            name="name"
-            type="text"
-            placeholder="이름"
-            required
-            className="mt-4 flex border-2 p-2 focus:outline-none w-[75%]"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            name="email"
-            type="email"
-            placeholder="이메일 ex)test@gmail.com"
-            required
-            className="mt-4 flex border-2 p-2 focus:outline-none w-[75%]"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            name="password"
-            type="password"
-            placeholder="비밀번호"
-            required
-            className="mt-4 flex border-2 p-2 focus:outline-none w-[75%]"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <input
-            name="passwordcheck"
-            type="password"
-            placeholder="비밀번호 확인검사"
-            required
-            className="mt-4 flex border-2 p-2 focus:outline-none w-[75%]"
-            value={passwordCheck}
-            onChange={(e) => setPasswordCheck(e.target.value)}
-          />
-          <div className={`${!arePasswordsSame ? '' : 'invisible'}`}>비밀번호가 일치하지않습니다</div>
+          <div className='flex flex-col w-[75%] relative '>
+            <input
+              name="name"
+              type="text"
+              required
+              className="flex border-2 p-2 focus:outline-none focus:border-cyan-900 focus:border-b-2 transition-colors peer text-black/50"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <span 
+              className="absolute left-2 top-2.5 text-gray-600 cursor-text peer-focus:text-xs peer-valid:text-xs peer-focus:-top-4 peer-valid:-top-4 peer-focus:text-cyan-900 peer-valid:text-cyan-900 transition-all"
+              style={{pointerEvents: "none"}}
+            >
+                  이름
+                </span>
+          </div>
+          <div className='flex flex-col w-[75%] relative mt-4'>
+            <input
+              name="email"
+              type="email"
+              required
+              className="flex border-2 p-2 focus:outline-none focus:border-cyan-900 focus:border-b-2 transition-colors peer text-black/50"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <span 
+              className="absolute left-2 top-2.5 text-gray-600 cursor-text peer-focus:text-xs peer-valid:text-xs peer-focus:-top-4 peer-valid:-top-4 peer-focus:text-cyan-900 peer-valid:text-cyan-900 transition-all"
+              style={{pointerEvents: "none"}}
+            >
+              이메일 // test@gmail.com
+            </span>
+          </div>
+          
+          <div className='flex flex-col w-[75%] relative mt-4'>
+            <input
+              name="password"
+              type="password"
+              required
+              className="flex border-2 p-2 focus:outline-none focus:border-cyan-900 focus:border-b-2 transition-colors peer text-black/50"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <span 
+              className="absolute left-2 top-2.5 text-gray-600 cursor-text peer-focus:text-xs peer-valid:text-xs peer-focus:-top-4 peer-valid:-top-4 peer-focus:text-cyan-900 peer-valid:text-cyan-900 transition-all"
+              style={{pointerEvents: "none"}}
+            >
+              비밀번호
+            </span>
+          </div>
+          <div className='flex flex-col w-[75%] relative mt-4'>
+            <input
+              name="passwordcheck"
+              type="password"
+              required
+              className="flex border-2 p-2 focus:outline-none focus:border-cyan-900 focus:border-b-2 transition-colors peer text-black/50"
+              value={passwordCheck}
+              onChange={(e) => setPasswordCheck(e.target.value)}
+            />
+            <span 
+              className="absolute left-2 top-2.5 text-gray-600 cursor-text peer-focus:text-xs peer-valid:text-xs peer-focus:-top-4 peer-valid:-top-4 peer-focus:text-cyan-900 peer-valid:text-cyan-900 transition-all"
+              style={{pointerEvents: "none"}}
+            >
+              비밀번호 확인
+            </span>
+          </div>
+          <div className={`${!arePasswordsSame ? '' : 'invisible'} text-red-800`}>비밀번호가 일치하지않습니다</div>
           <div className="w-full flex justify-center">
             <button
               type="submit"
