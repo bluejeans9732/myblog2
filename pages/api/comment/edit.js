@@ -7,23 +7,25 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]'
 export default async function Edit(요청, 응답) {
     if(요청.method) {
         let session = await getServerSession(요청, 응답, authOptions)
+        console.log(요청.body)
 
-        let 바꿀거 = {title : 요청.body.title, content : 요청.body.content}
+        let 바꿀거 = JSON.parse(요청.body).content;
+        const 바꿀내용 = { content : 바꿀거};
         
-        const postID = new ObjectId(요청.body._id);
+        const postID = JSON.parse(요청.body).postId;
         const client = await connectDB();
         const db = client.db('practsx');
 
-        let findID = await db.collection('post').findOne({ _id : new ObjectId(postID) })
+        let findID = await db.collection('comment').findOne({ _id : new ObjectId(postID) })
 
         if(findID.author == session?.user?.email || findID.name == 'guest' || (session?.user?.role === 'administrator')) {
             
-            let result = await db.collection('post').updateOne(
+            let result = await db.collection('comment').updateOne(
                 { _id: new ObjectId(postID)}, 
-                {$set: 바꿀거}
+                {$set: 바꿀내용}
             );
 
-            return 응답.redirect(302, '/board');
+            return 응답.status(200).json('수정완료')
         }
         else {
             return 응답.redirect(500, '/');
