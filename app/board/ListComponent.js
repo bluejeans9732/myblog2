@@ -41,7 +41,7 @@ export default function ListComponent() {
     <div className='py-8 px-4 mx-auto max-w-screen-xl lg:py-6 lg:px-6'>
       <SearchBar onSearch={handleSearch} />
       {filteredPosts.map((post, i) => (
-        <article class="p-6 mb-4 bg-white rounded-lg border border-gray-200 shadow-md " >        
+        <article className="p-6 mb-4 bg-white rounded-lg border border-gray-200 shadow-md " key={i}>        
             <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
               <Link href={`/board/${post._id}`}>
                 {post.title}

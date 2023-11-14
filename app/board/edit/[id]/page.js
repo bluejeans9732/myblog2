@@ -1,5 +1,6 @@
 import { connectDB } from '@/utils/database'
 import { ObjectId } from "mongodb";
+import Textarea from './textarea';
 
 export default async function boardedit(props) {
 
@@ -24,12 +25,7 @@ export default async function boardedit(props) {
               </div>
               <div className='flex flex-col mt-10 mb-10'>
                 <div className='text-cyan-900 font-bold p-2'>내용</div>
-                <textarea
-                  name="content"
-                  style={{ height: '200px', resize: 'none', overflowY: 'auto' }}
-                  className="mt-[16px] border-[2px] p-[8px] focus:outline-none"
-                  defaultValue={result.content}
-                ></textarea>
+                <Textarea content={result.content}/>
               </div>
               <input
                 name='_id'
@@ -39,7 +35,7 @@ export default async function boardedit(props) {
               <div className="w-full flex justify-center">
                  <button
                     type='submit'
-                    className='bg-cyan-700/75 text-white rounded-lg p-4 mt-32'
+                    className='bg-cyan-700/75 text-white rounded-lg p-4 mt-10'
                  >
                   수정하기
                  </button> 
