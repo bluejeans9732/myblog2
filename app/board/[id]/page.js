@@ -8,8 +8,6 @@ import DeleteButton from '../DeleteButton';
 import EditButton from '../EditButton';
 import Comment from './Comment';
 
-import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html';
-
 
 export default async function board(props) {
     let session = await getServerSession(authOptions)
@@ -17,14 +15,6 @@ export default async function board(props) {
     const client = await connectDB();
     const db = client.db('practsx');
     let result = await db.collection('post').findOne({_id : new ObjectId(props.params.id)});
-
-    // mongoDB에서 데이터 가져온후 html에서 적용되게 변환
-    const deltaOps = JSON.parse(result.content).ops;
-    console.log('Delta Ops:', deltaOps);
-  
-    const converter = new QuillDeltaToHtmlConverter(deltaOps, { theme: 'snow' });
-    const contentHtml = converter.convert();
-    console.log('Content HTML:', contentHtml);
 
     /**보이는 조건 현재로그인 이메일 == 글쓴사람 아이이 + guest 추후 마스터 권한 조건 추가 완료 */
     let showButtons = (session?.user?.email === result.author) || (result.name === 'guest') || (session?.user?.role === 'administrator');
@@ -46,8 +36,7 @@ export default async function board(props) {
                     className="text-wrap mt-24"
                     style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}
                 >
-                    <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
-                    <div>{contentHtml}</div>
+                    {result.content}
                 </div>
                 <Comment _id={result._id.toString()}/>
             </div>

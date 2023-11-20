@@ -1,4 +1,3 @@
-import CheckList from "@editorjs/checklist";
 import Code from "@editorjs/code";
 import Embed from "@editorjs/embed";
 import Image from "@editorjs/image";
@@ -19,7 +18,6 @@ export const EDITOR_TOOLS = {
     }
   },
   paragraph: Paragraph,
-  checklist: CheckList,
   embed: Embed,
   image: Image,
   inlineCode: InlineCode,

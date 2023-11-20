@@ -25,7 +25,12 @@ export default async function boardedit(props) {
               </div>
               <div className='flex flex-col mt-10 mb-10'>
                 <div className='text-cyan-900 font-bold p-2'>내용</div>
-                <Textarea content={result.content}/>
+                <textarea
+                  name="content"
+                  style={{ height: '200px', resize: 'none', overflowY: 'auto' }}
+                  className="mt-[16px] border-[2px] p-[8px] focus:outline-none"
+                  defaultValue={result.content}
+                ></textarea>
               </div>
               <input
                 name='_id'
