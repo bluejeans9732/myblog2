@@ -36,25 +36,25 @@ export default function CommentEdit({ postId, onRefreshComments, content }) {
         <div>
             {isEditing ? (
                 <div className='flex'>
-                <input 
-                    type="text"
-                    value={newContent}
-                    onChange={(e) => setNewContent(e.target.value)}
-                    className="h-6 ml-2 mt-1 p-1 flex border-2 focus:outline-none focus:border-cyan-900"
-                />
-                <div 
-                  onClick={handleSave}
-                  className="cursor-pointer text-gray-400 hover:underline hover:text-cyna-900 hover:font-semibold ml-2 mr-4"
-                >
-                  저장
+                    <input 
+                        type="text"
+                        value={newContent}
+                        onChange={(e) => setNewContent(e.target.value)}
+                        className="h-6 ml-2 mt-1 p-1 flex border-2 focus:outline-none focus:border-cyan-900"
+                    />
+                    <div 
+                      onClick={handleSave}
+                      className="cursor-pointer text-gray-400 hover:underline hover:text-cyna-900 hover:font-semibold ml-2 mr-4"
+                    >
+                      저장
+                    </div>
+                    <div 
+                      onClick={handleCancle}
+                      className="cursor-pointer text-gray-400 hover:underline hover:text-blue-800/75 mr-4"
+                    >
+                      취소 
+                    </div>
                 </div>
-                <div 
-                  onClick={handleCancle}
-                  className="cursor-pointer text-gray-400 hover:underline hover:text-blue-800/75 mr-4"
-                >
-                  취소 
-                </div>
-            </div>
             ) : (
                 <div className='flex justify-between'>
                     <span className='ml-2 mr-4'>{content}</span>

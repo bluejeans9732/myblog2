@@ -34,22 +34,21 @@ export default function Comment({_id}) {
                 data.length > 0 ? (
                     data.map((a, i) => {
                         return (
-                            <div className="mt-4 flex justify-between items-center ">
-                                <p key={i} className="flex">
+                            <div key={i} className="mt-4 flex justify-between items-center ">
+                                <div className="flex">
                                     <p className="font-bold">{a.authorname}</p>
                                     : 
                                     <CommentEdit postId={JSON.parse(JSON.stringify(a._id))} onRefreshComments={fetchCommentList} content={a.content}/>
                                     <CommentDel postId={JSON.parse(JSON.stringify(a._id))} onRefreshComments={fetchCommentList}/>
-                                </p>
+                                </div>
                             </div>
-                            
-                            
                         )
                     })
                 ) : (
                     "로딩중"
                 )
             }
+
             <div className="flex flex-col mt-10">
                 <input 
                     onChange={(e) => { setComment(e.target.value)}}
