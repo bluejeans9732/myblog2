@@ -20,7 +20,7 @@ export default function LeftSidebar() {
                             pathname === link.route;
 
                         return (
-                            <Link 
+                            <Link
                                 href={link.route}
                                 key={link.label}
                                 className={`relative flex justify-start gap-4 rounded-lg p-4 ${isActive ? "bg-blue-400/75" : ""}`}

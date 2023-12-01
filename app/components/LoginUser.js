@@ -1,8 +1,9 @@
 'use client'
 
 import { signOut } from 'next-auth/react';
+import Link from 'next/link';
 
-export default function LoginUser({ user }) {
+export default function LoginUser({ user, admin }) {
   const defaultImage = "https://avatars.githubusercontent.com/u/87612227?v=4";
 
   const image = user?.image || defaultImage;
@@ -14,7 +15,8 @@ export default function LoginUser({ user }) {
         alt={image}
         className="w-8 h-8 rounded-full"
       />
-      <div className='text-white mr-4'>{user.name}</div>
+      <div className='text-white mr-2'>{user.name}</div>
+      {admin === "administrator" && <Link href="/admin" className="block text-white/75 cursor-pointer mr-2">관리자 모드</Link>}
       <div
         onClick={() => signOut()}
         className="block text-white/75 cursor-pointer"

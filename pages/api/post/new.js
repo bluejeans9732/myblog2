@@ -4,7 +4,7 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]'
 
 export default async function handler(요청, 응답) {
     let session = await getServerSession(요청, 응답, authOptions)
-    console.log(요청.body)
+    
     if(session) {
         요청.body.author = session.user.email
         요청.body.name = session.user.name

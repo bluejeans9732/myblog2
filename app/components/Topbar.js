@@ -7,7 +7,7 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]'
 
 export default async function Topbar() {
     let session = await getServerSession(authOptions)
-    
+    let admin = session?.user?.role;
     const isUserLoggedIn = session ? true : false;
     
 
@@ -18,7 +18,7 @@ export default async function Topbar() {
             </Link>
             
             <div className="flex items-center gap-1">
-                {isUserLoggedIn ? <LoginUser user={session.user} /> : <LoginBtn />}
+                {isUserLoggedIn ? <LoginUser user={session.user} admin={admin}/> : <LoginBtn />}
             </div>
         </nav>
     )

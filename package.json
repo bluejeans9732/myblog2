@@ -47,7 +47,7 @@
     "eslint-config-next": "13.4.19",
     "mongodb": "^4.17.1",
     "next": "^14.0.4-canary.5",
-    "next-auth": "^4.21.1",
+    "next-auth": "^4.24.5",
     "postcss": "8.4.29",
     "quill": "^1.3.7",
     "quill-delta-to-html": "^0.12.1",
